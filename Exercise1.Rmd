@@ -26,16 +26,16 @@ uidata <- read.csv("ip_and_unemployment.csv")
 selection_index_type <- function(data){
   filtered_data <- uidata %>%
   filter(uidata$series == data)
-  return(flitered_data)}
+  return(filtered_data)}
 ipdata <- selection_index_type("ip")
 head(ipdata)
 ```
 
 ```{r transformations2}
 #turn the data frame to a clean data structure
-country_selection <- function(data){
+country_selection <- function(data_new){
   filtered_country <- uidata %>%
-    filter(uidata$country == data)
+    filter(uidata$country == data_new)
   return(filtered_country)} 
 france_data <- country_selection("france")
 head(france_data)

@@ -368,9 +368,9 @@ chunk like this:</p>
 uidata &lt;- read.csv(&quot;ip_and_unemployment.csv&quot;)</code></pre>
 <pre class="r"><code>#fliter the unemployment and industry production data to one of the index
 selection_index_type &lt;- function(data){
-  flitered_data &lt;- uidata %&gt;%
+  filtered_data &lt;- uidata %&gt;%
   filter(uidata$series == data)
-  return(flitered_data)}
+  return(filtered_data)}
 ipdata &lt;- selection_index_type(&quot;ip&quot;)
 head(ipdata)</code></pre>
 <pre><code>##   country       date series    value
@@ -380,6 +380,20 @@ head(ipdata)</code></pre>
 ## 4  france 01.04.2019     ip  0.52124
 ## 5  france 01.05.2019     ip  1.64202
 ## 6  france 01.06.2019     ip -2.23902</code></pre>
+<pre class="r"><code>#turn the data frame to a clean data structure
+country_selection &lt;- function(data_new){
+  filtered_country &lt;- uidata %&gt;%
+    filter(uidata$country == data_new)
+  return(filtered_country)} 
+france_data &lt;- country_selection(&quot;france&quot;)
+head(france_data)</code></pre>
+<pre><code>##   country       date       series    value
+## 1  france 01.01.2019           ip  0.97331
+## 2  france 01.01.2019 unemployment  8.70000
+## 3  france 01.02.2019           ip -0.49628
+## 4  france 01.02.2019 unemployment  8.70000
+## 5  france 01.03.2019           ip -0.63303
+## 6  france 01.03.2019 unemployment  8.60000</code></pre>
 </div>
 
 
