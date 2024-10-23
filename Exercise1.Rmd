@@ -21,7 +21,7 @@ When you click the **Knit** button a document will be generated that includes bo
 uidata <- read.csv("ip_and_unemployment.csv")
 ```
 
-```{r transformations}
+```{r transformations1}
 #fliter the unemployment and industry production data to one of the index
 selection_index_type <- function(data){
   flitered_data <- uidata %>%
@@ -30,3 +30,4 @@ selection_index_type <- function(data){
 ipdata <- selection_index_type("ip")
 head(ipdata)
 ```
+
