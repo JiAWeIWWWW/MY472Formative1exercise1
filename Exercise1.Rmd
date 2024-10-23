@@ -31,3 +31,10 @@ ipdata <- selection_index_type("ip")
 head(ipdata)
 ```
 
+```{r transformations2}
+#turn the data frame to a clean data structure
+ipu_clean <- uidata %>%
+  pivot_wider(id_cols = c("country", "date"), 
+              names_from = "series", values_from = "value")
+head(ipu_clean)
+```
