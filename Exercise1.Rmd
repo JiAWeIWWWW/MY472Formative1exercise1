@@ -24,7 +24,7 @@ uidata <- read.csv("ip_and_unemployment.csv")
 ```{r transformations1}
 #fliter the unemployment and industry production data to one of the index
 selection_index_type <- function(data){
-  flitered_data <- uidata %>%
+  filtered_data <- uidata %>%
   filter(uidata$series == data)
   return(flitered_data)}
 ipdata <- selection_index_type("ip")
@@ -33,8 +33,11 @@ head(ipdata)
 
 ```{r transformations2}
 #turn the data frame to a clean data structure
-ipu_clean <- uidata %>%
-  pivot_wider(id_cols = c("country", "date"), 
-              names_from = "series", values_from = "value")
-head(ipu_clean)
+country_selection <- function(data){
+  filtered_country <- uidata %>%
+    filter(uidata$country == data)
+  return(filtered_country)} 
+france_data <- country_selection("france")
+head(france_data)
+
 ```
